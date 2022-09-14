@@ -24,7 +24,7 @@ class RegisterViewController: UIViewController {
                     self.errorLabel.alpha = 1
                 } else {
                     // Navigate to the ChatViewController
-                    self.performSegue(withIdentifier: K.registerSegue, sender: self)
+                    self.performSegue(withIdentifier: Constants.registerSegue, sender: self)
                 }
             }
         }
