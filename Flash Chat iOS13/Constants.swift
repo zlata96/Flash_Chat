@@ -6,6 +6,7 @@
 //
 
 struct Constants {
+    
     static let appName = "⚡️FlashChat"
     static let cellIdentifier = "ReusableCell"
     static let cellNibName = "MessageCell"
@@ -25,4 +26,5 @@ struct Constants {
         static let bodyField = "body"
         static let dateField = "date"
     }
+    
 }

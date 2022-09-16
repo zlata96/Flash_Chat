@@ -33,8 +33,8 @@ class ChatViewController: UIViewController {
             .order(by: Constants.FStore.dateField)
             .addSnapshotListener { (querySnapshot, error) in
                 self.messages = []
-                if let e = error {
-                    print("There was an issue retrieving data from Firestore. \(e)")
+                if let error = error {
+                    print("There was an issue retrieving data from Firestore. \(error)")
                 } else {
                     if let snapshotDocument = querySnapshot?.documents {
                         for doc in snapshotDocument {
@@ -70,9 +70,9 @@ class ChatViewController: UIViewController {
                 Constants.FStore.senderField : messageSender,
                 Constants.FStore.bodyField: messageBody,
                 Constants.FStore.dateField: Date().timeIntervalSince1970
-            ]) { (error) in
-                if let e = error {
-                    print("There was an issue saving data to firestore, \(e)")
+            ]) { error in
+                if let error = error {
+                    print("There was an issue saving data to firestore, \(error)")
                 } else {
                     print("Successfully saved data")
                     DispatchQueue.main.async {
@@ -81,12 +81,13 @@ class ChatViewController: UIViewController {
                 }
             }
         }
-        
     }
+    
 }
 
 // MARK: UITableViewDataSource
 extension ChatViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = messages[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! MessageCell
@@ -110,5 +111,6 @@ extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
+    
 }
 

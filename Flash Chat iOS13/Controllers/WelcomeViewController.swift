@@ -9,7 +9,7 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel:UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -20,6 +20,7 @@ class WelcomeViewController: UIViewController {
         super.viewDidDisappear(animated)
         navigationController?.isNavigationBarHidden = false
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,4 +34,5 @@ class WelcomeViewController: UIViewController {
             charIndex += 1
         }
     }
+    
 }
